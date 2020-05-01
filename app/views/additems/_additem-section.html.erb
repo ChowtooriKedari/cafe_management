@@ -1,0 +1,27 @@
+ <section class="TodoSection">
+  <div class="TodoSectionTitle" display: flex>
+    <p class="TodoSectionTitle-text"><%=section_title%></p>
+    <p class="TodoSectionTitle-remainingCount">
+    <%=items.count%>
+    </p>
+  </div>
+  <ul>
+    <% items.each do |item|%>
+       <li class="AddItem">
+         <label class="AddItem-container">
+                    <p><%=item.item_name%></p>
+                    <p>Rs.<%=item.item_cost%>/-</p>
+
+
+
+                 <%= form_with(url: "/additems/#{item.id}",method: "delete") do %>
+                     <input type='image' class="Additem-delete" src="t.png" alt="Delete" height="20" width="20" >
+                   <%end%>
+                   <%= link_to "Update", edit_additem_path(item)%>
+            </label>
+       </li>
+
+       <%end%>
+
+    </ul>
+    </section>

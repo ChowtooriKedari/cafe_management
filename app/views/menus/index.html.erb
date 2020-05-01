@@ -1,0 +1,13 @@
+  <main class="TodoPageMain">
+    <article>
+       <h1 class="TodoPage-title">Select your Menu</h1>
+          <%= form_with(url: "/menus", method: "post", class:"AddMsenu") do %>
+          <%= select_tag "name", raw("<option selected ='selected'>Break-Fast</option><option>Lunch</option><option>Dinner</option>"),  {:class => 'dropdown'}%>
+          <%= button_tag('Proceed to Add Items',type:"Submit",class:"AddTodo-Button")%>
+           <%end%>
+
+          <h3 class="Food">Have a delicious food</h3>
+
+
+    </article>
+</main>

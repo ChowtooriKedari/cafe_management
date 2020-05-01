@@ -1,0 +1,11 @@
+<main class="TodoPageMain">
+    <article>
+       <h1 class="Additems-title">Orders Of the Day</h1>
+         <%= render partial:"order-section",locals: {
+                    section_title: "Ordered Items Count : ",
+                    items: Order.all
+                    }%>
+    <h3 class="Fooditem">Have a delicious food</h3>
+    </article>
+
+</main>

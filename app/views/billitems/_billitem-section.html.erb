@@ -1,0 +1,35 @@
+  <section class="TodoSection">
+  <div class="TodoSectionTitle" display: flex>
+    <p class="TodoSectionTitle-text"><%=section_title%></p>
+    <p class="TodoSectionTitle-remainingCount">
+
+    </p>
+  </div>
+  <ul>
+  <%@bill_amount=0%>
+  <%n=0%>
+    <% items.each do |item|%>
+       <li class="OrderItem">
+         <label class="OrderItem-container">
+             <div class="OrderMenu">
+                      <%@bill_amount= @bill_amount + item.item_cost*item.quantity%>
+                      <%n=n+1%>
+                      <p class="Ordereditemname">  <%=n%> Item Name : <%=item.item_name%> </p>
+                      <p class="Ordereditemcost"> Item Cost (<%=item.quantity%>*<%=item.item_cost%> ) : Rs <%=item.item_cost * item.quantity%>/-</p>
+            </div>
+              <p>Ordered At : <%=Time.now%></p>
+
+
+
+        <%end%>
+       </li>
+        <p>----------------------------------------------</p>
+     <div class="Billamount"><p class="Outer">Total bill amount :<p class="Bill"> Rs.<%= @bill_amount%>/-</p> </p></div>   </label>
+     <div class="OrderMenu">
+      <%= form_with(url: "/orders",method: "POST") do %>
+                     <input type='button'  value="View Your Order Status" class="Processorder"
+                     alt="Add items" onclick="this.form.submit()">
+                   <%end%>
+                   </div>
+    </ul>
+    </section>

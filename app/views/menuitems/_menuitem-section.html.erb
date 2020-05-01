@@ -1,0 +1,38 @@
+ <section class="TodoSection">
+  <div class="TodoSectionTitle" display: flex>
+    <p class="TodoSectionTitle-text"><%=section_title%></p>
+    <p class="TodoSectionTitle-remainingCount">
+    <%=items.count%>
+    </p>
+  </div>
+  <ul>
+    <% items.each do |item|%>
+       <li class="MenuItem">
+         <label class="MenuItem-container">
+         <div class="Menu">
+         <%= form_with(url: "/menuitems/#{item.id}",method: "PUT") do %>
+          <input class="TodoItem-checkbox"
+                     type="checkbox"
+                     name="completed"
+                     <%=item.selected ? "checked":""%>
+                     onclick="this.form.submit()"
+                     />
+                     <%end%>
+                    <p><%=item.item_name%></p>
+                    <p class="ItemCost">Rs.<%=item.item_cost%>/-</p>
+                  </div>
+                 <div class="Item-description">
+                  <p><%=item.item_description%>
+                 </div>
+                 <%if item.selected  %>
+                    <%= form_with(url: "/orderitems",method: "POST") do %>
+                     <input type='image' class="Additem-forward" src="forward.png" alt="Additems" margin-right="100px" height="20" width="20">
+                   <%end%>
+         <%end%>
+         <%end%><br/><br/>
+          <%=link_to "Proceed to Order -> " , orderitems_path%>
+       </label>
+       </li>
+    </ul>
+
+    </section>

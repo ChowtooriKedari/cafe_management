@@ -1,0 +1,28 @@
+<main class="TodoPageMain">
+    <article>
+       <h1 class="Additems-title">Enter Menu Items </h1>
+          <%= form_with(url: "additems#create", method: "post") do %>
+                <div class="Additem">
+                    <%=label_tag 'Enter Item Name  ', nil, class: 'Additemlabel'%>
+                    <%= text_field_tag(:item_name,nil, class:'Additem-Name', placeholder: "Add Item Name ")%>
+               </div>
+                <div class="Additem">
+                     <%=label_tag 'Enter Item Description  ', nil, class: 'Additemlabel'%>
+                    <%= text_field_tag(:item_description,nil, class:'Additem-description', placeholder: "Add Item Description" )%>
+                </div>
+                <div class="Additem">
+                    <%=label_tag 'Enter Item Cost  ', nil, class: 'Additemlabel'%>
+                    <%= text_field_tag(:item_cost,nil, class:'Additem-cost', placeholder: "Add Item cost in rupees" )%>
+                </div>
+                <%= button_tag('Proceed to Add Items',type:"Submit",class:"Additem-Button")%>
+           <%end%>
+<%= link_to "<-Go Back",ownerhome_index_path,class:"AddItem-Goback" %>
+
+          <h3 class="Fooditem">Have a delicious food</h3>
+         <%= render partial:"additem-section",locals: {
+                    section_title: "Items in the list",
+                    items: Additems.all
+                    }%>
+
+    </article>
+</main>
