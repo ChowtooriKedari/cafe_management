@@ -2,7 +2,7 @@
     <article>
       <%= link_to "Sign-Out",destroy_session_path,method: "delete"%>
        <h1 class="Additems-title">Orders Of the Day</h1>
-         <%= render partial:"order-section",locals: {
+         <%= render partial:"orderclerk-section",locals: {
                     section_title: "Ordered Items Count : ",
                     items: Order.all
                     }%>
