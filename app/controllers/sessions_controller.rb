@@ -9,8 +9,14 @@ class SessionsController < ApplicationController
     if user && (user.authenticate(params[:password]) && user.role == "Customer")
       session[:current_user_id] = user.id
       redirect_to usermain_index_path
+    elsif user && (user.authenticate(params[:password]) && user.role == "Owner")
+      session[:current_user_id] = user.id
+      redirect_to ownerhome_index_path
+    elsif user && (user.authenticate(params[:password]) && user.role == "Clerk")
+      session[:current_user_id] = user.id
+      redirect_to orderreceivedbyclerk_index_path
     else
-      flash[:error] = "Invalid User Credentials.Please Login Again/You are not a Customer"
+      flash[:error] = "Invalid User Credentials.Please Login Again"
       redirect_to new_sessions_path
     end
   end

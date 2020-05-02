@@ -3,10 +3,16 @@
          <%= link_to "Sign-Out",destroy_session_path,method: "delete"%>
 
 
-       <h1 class="Additems-title">Select the items</h1>
+       <h1 class="Additems-title">Your Ordered Items List</h1>
+       <%= render partial:"order-section1",locals: {
+                    section_title: "Previous Orders :",
+                    items: @orderitemes.all,
+                    show_billamount:false
+              }%>
          <%= render partial:"order-section",locals: {
-                    section_title: "Purchased Items : ",
-                    items: Order.all
+                    section_title: " Today's Orders :  ",
+                    items: @orderitemes.all,
+                    show_billamount:true
                     }%>
 
     <h3 class="Fooditem">Have a delicious food</h3>

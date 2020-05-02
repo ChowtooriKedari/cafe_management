@@ -9,12 +9,21 @@
   font-weight: 600;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  margin-left: 500px;
+  margin-top: 50px;
 }
 .Linker {
   color: green;
   font-size: initial;
   align-self: center;
+  margin-left: 20px;
   font-style: normal;
   font-size: 20px;
   margin-right: 50px;
+}
+.OwnerLinkers {
+  display: flex;
+  border: 5px solid gray;
+  justify-items: center;
+  justify-content: space-evenly;
 }

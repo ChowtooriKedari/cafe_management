@@ -1,11 +1,15 @@
+
  <section class="TodoSection">
-  <div class="TodoSectionTitle" display: flex>
+
+  <div class="Menuitemslist">
+    <div class="TodoSectionTitle" display: flex>
     <p class="TodoSectionTitle-text"><%=section_title%></p>
     <p class="TodoSectionTitle-remainingCount">
     <%=items.count%>
     </p>
   </div>
   <ul>
+
     <% items.each do |item|%>
        <li class="MenuItem">
          <label class="MenuItem-container">
@@ -18,11 +22,13 @@
                      onclick="this.form.submit()"
                      />
                      <%end%>
-                    <p><%=item.item_name%></p>
-                    <p class="ItemCost">Rs.<%=item.item_cost%>/-</p>
+                    <%=item.item_name%>
+
                   </div>
+                  <p class="ItemCost">Rs.<%=item.item_cost%>/-</p>
+
                  <div class="Item-description">
-                  <p><%=item.item_description%>
+                  <p><%=item.item_description%></p>
                  </div>
                  <%if item.selected  %>
                     <%= form_with(url: "/orderitems",method: "POST") do %>
@@ -34,5 +40,5 @@
        </label>
        </li>
     </ul>
-
+  </div>
     </section>

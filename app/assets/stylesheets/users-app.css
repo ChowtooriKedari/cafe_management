@@ -27,3 +27,11 @@
   border: 0;
   border-radius: 4px;
 }
+.checker {
+  display: flex;
+  justify-items: stretch;
+}
+.Owner {
+  margin-top: 20px;
+  color: grey;
+}

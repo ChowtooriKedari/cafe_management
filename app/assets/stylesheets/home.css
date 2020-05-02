@@ -20,3 +20,29 @@
   display: flex;
   justify-content: space-between;
 }
+.Arrangecontent {
+  margin-top: 200px;
+  margin-bottom: 200px;
+  justify-content: center;
+  width: 450px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin-left: 500px;
+  background-color: lightblue;
+}
+.Arrangecontent2 {
+  justify-content: center;
+  width: 450px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin-left: 500px;
+  background-color: lightgoldenrodyellow;
+}
+.Arrangecontent3 {
+  justify-content: center;
+  width: 450px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin-left: 500px;
+  background-color: lightgray;
+}

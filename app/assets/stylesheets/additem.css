@@ -103,6 +103,7 @@
   color: orangered;
   background-color: lightblue;
   border-radius: 5px;
+  text-align: center;
 }
 .update-heading {
   color: teal;

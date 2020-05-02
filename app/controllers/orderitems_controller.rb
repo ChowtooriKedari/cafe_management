@@ -1,4 +1,3 @@
-0
 
 class OrderitemsController < ApplicationController
   def index

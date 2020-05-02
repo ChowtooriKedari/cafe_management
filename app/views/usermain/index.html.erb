@@ -3,8 +3,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
 
+<body>
+<div class="Usermaincss">
 
 <div class="Breakfastitemborder">
 <div class="Flip-flex">
@@ -116,19 +117,19 @@
   </div>
 </div>
 </div>
-</div>
 
 
-<main class="TodoPageMain">
-    <article>
+
+
+
 
  <%= form_with(url: "/menuitems",method: "POST") do %>
                      <input type='image' class="Usermain-add" src="forward.png" alt="Delete" height="30" width="30">
                    <%end%>
                    <h4 class="Fooditem">Press >> to Order Items</h4>
     <h3 class="Fooditem">Have a delicious food</h3>
-    </article>
-</main>
 
+</div>
+</div>
 </body>
 </html>

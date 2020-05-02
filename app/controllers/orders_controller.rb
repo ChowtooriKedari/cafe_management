@@ -1,6 +1,15 @@
 class OrdersController < ApplicationController
+  skip_before_action :ensure_user_logged_in
+
   def index
+    @orderitemes = current_user.orders
     render "index"
+  end
+
+  def show
+    id = params[:id]
+    order = Order.of_user(current_user).find(id)
+    render "order"
   end
 
   def create
@@ -9,13 +18,14 @@ class OrdersController < ApplicationController
       name = item.item_name
       cost = item.item_cost
       quantity = item.quantity
-      ordereditems = Order.create(ordered_user_id: 1,
-                                  delivered_at: Time.now,
+      t = Time.now
+      ordereditems = Order.create(delivered_at: nil,
                                   confirmed: false,
                                   quantity: quantity,
                                   item_name: name,
                                   item_cost: item.item_cost,
-                                  order_time: item.ordertime)
+                                  order_time: item.ordertime,
+                                  user_id: current_user.id)
     end
     redirect_to orders_path
   end
@@ -28,7 +38,8 @@ class OrdersController < ApplicationController
     else
       item.confirmed = false
     end
+    item.delivered_at = Time.now
     item.save!
-    redirect_to orderreceived_path
+    redirect_to orderreceived_index_path
   end
 end

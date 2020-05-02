@@ -13,16 +13,21 @@
          <% if item.quantity!=nil %>
                 <%   if item.quantity>=1  %>
                     <%@bill_amount= @bill_amount + item.menu_item_cost * item.quantity%>
-                    <div class="OrderMenu">
+                    <div class="OrderMenus">
+
                     <p class="Ordereditemname"><%=item.menu_item_name%></p>
-                    <p class="Ordereditemcost">Quantity : <%=item.quantity%>
+                    <p class="Ordereditemquantity">Quantity : <%=item.quantity%>
                     </p>
-                    </div>
+
                     <p class="Ordereditemcost">Total Cost :  Rs.<%=item.menu_item_cost * item.quantity%> /-</p>
-                    <%= form_with(url: "/orderitems/#{item.id}",method: "DELETE") do %>
-                       <input type='image' class="Ordered-delete" src="t.png" alt="Delete" height="20" width="20">
-                        <p class="OrderQuantityUpdate">  <%=link_to "Update Quantity"  ,edit_orderitem_path(item)%></p>
+                     </div>
+                    <div class="Updatedetailsoptions">
+                      <%= form_with(url: "/orderitems/#{item.id}",method: "DELETE") do %>
+                          <input type='image' class="Ordered-delete" src="t.png" alt="Delete" height="20" width="20">
+                          <%=link_to "Update Quantity"  ,edit_orderitem_path(item),class:"updatequantity"%>
                       <%end%>
+                    </div>
+
 
             <%end%>
          <%end%>
@@ -44,4 +49,5 @@
                    <%end%>
                    </div>
     </ul>
+
     </section>

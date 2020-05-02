@@ -2,6 +2,7 @@
   <div class="TodoSectionTitle" display: flex>
     <p class="TodoSectionTitle-text"><%=section_title%></p>
     <p class="TodoSectionTitle-remainingCount">
+
     </p>
   </div>
   <ul>
@@ -13,11 +14,11 @@
          <div class="OrderMenu">
 
 
-<% if item.order_time.strftime("%m/%d/%Y") == Date.today.strftime("%m/%d/%Y")%>
+<% if (item.order_time.strftime("%m/%d/%Y") < Date.today.strftime("%m/%d/%Y"))%>
  <% if show_billamount%>
           <%@bill_amount= @bill_amount + item.item_cost * item.quantity%>
       <%end%>
-                      <%n=n+1%>
+                          <%n=n+1%>
 
                       <p class="Ordereditemname">  <%=n%>. Name: <%=item.item_name%>
                     </p>
@@ -25,24 +26,21 @@
 
 
           </div>
-          <div>
-          <p>Ordered On : <%=item.order_time.strftime("%d/%m/%Y")%>  <%=item.order_time.strftime("at %I:%M%p")%></p>
-</div>
-<div>
-          <%if !item.confirmed%>
+          <p>Ordered On: <%=item.order_time.strftime("%d/%m/%Y")%>  <%=item.order_time.strftime("at %I:%M%p")%></p>
+
+
+            <%if !item.confirmed%>
           <p class="Pending">Status: Pending </p>
           <%else%>
            <p class="Confirmed">Status: Confirmed </p></p>
            <%end%>
         <%end%>
-</div>
 
 <%end%>
 
 
        </li>
-        <p>----------------------------------------------</p>
-     <div class="Billamount"><p class="Outer">Total bill amount :<p class="Bill"> Rs.<%= @bill_amount%>/-</p> </p></div>
+
       </label>
     </ul>
     </section>

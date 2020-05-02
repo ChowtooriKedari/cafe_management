@@ -1,4 +1,4 @@
-class OrderreceivedController < ApplicationController
+class OrderreceivedbyclerkController < ApplicationController
   skip_before_action :ensure_user_logged_in
 
   def index
@@ -18,6 +18,6 @@ class OrderreceivedController < ApplicationController
       item.confirmed = false
     end
     item.save!
-    redirect_to orderreceived_path
+    redirect_to orderreceivedbyclerk_index_path
   end
 end

@@ -5,10 +5,6 @@ class UsersController < ApplicationController
     render "users/new"
   end
 
-  def index
-    render plain: User.order(:id).map { |user| user.to_pleasant_string }.join("\n")
-  end
-
   def show
     id = params[:id]
     user = User.find(id)
@@ -29,10 +25,27 @@ class UsersController < ApplicationController
                             is_clerk: false,
                             password: password)
     if created_user.save
+      flash[:error] = "User Successfully Registered"
       redirect_to "/"
     else
       flash[:error] = created_user.errors.full_messages.join(" , ")
       redirect_to user_sessions_path
+    end
+  end
+
+  def update
+    id = params[:id]
+    user = User.find(id)
+    if !user.is_owner
+      user.role = "Owner"
+      user.is_owner = true
+    else
+      user.role = "Customer"
+      user.is_owner = false
+    end
+    if user.save!
+      flash[:notice] = "Details Changed Successfully"
+      redirect_to viewusersbyowner_index_path
     end
   end
 

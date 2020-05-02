@@ -35,14 +35,15 @@
   margin-bottom: 80px;
 }
 .Menu {
-  color: tomato;
+  color: grey;
   font-size: 16px;
   display: flex;
   justify-content: stretch;
 }
 .ItemCost {
   color: green;
-  margin-left: 100px;
+  margin-left: 5px;
+  margin-top: 20px;
   padding-left: 40px;
   padding-right: 10px;
 }
@@ -71,5 +72,19 @@
   margin-left: 10px;
 }
 .Item-description {
-  color: burlywood;
+  color: darkgray;
+  margin-left: 40px;
+  font-style: oblique;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.Menuitemslistmain {
+  border: 5px solid gray;
+  background-image: image-set("idli.jpg");
+}
+.Menuitemslist {
+  margin-bottom: 200px;
+  justify-content: center;
+  width: 450px;
+  padding: 10px;
+  margin-left: 500px;
 }
