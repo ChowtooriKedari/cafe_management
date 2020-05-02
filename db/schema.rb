@@ -10,77 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_191630) do
+ActiveRecord::Schema.define(version: 0) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "additems", force: :cascade do |t|
-    t.string "item_name"
-    t.string "item_description"
-    t.bigint "item_cost"
-    t.bigint "user_id"
-  end
-
-  create_table "billitems", force: :cascade do |t|
-    t.string "item_name"
-    t.bigint "item_cost"
-    t.datetime "ordertime"
-    t.bigint "user_id"
-    t.bigint "quantity"
-  end
-
-  create_table "menuitems", force: :cascade do |t|
-    t.string "item_name"
-    t.string "item_description"
-    t.bigint "item_cost"
-    t.bigint "user_id"
-    t.boolean "selected"
-  end
-
-  create_table "menus", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "orderitem", force: :cascade do |t|
-    t.bigint "ordered_user_id"
-    t.bigint "order_id"
-    t.bigint "menu_item_id"
-    t.string "menu_item_name"
-    t.string "menu_item_price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "quantity"
-  end
-
-  create_table "orderitems", force: :cascade do |t|
-    t.bigint "ordered_user_id"
-    t.string "menu_item_name"
-    t.bigint "menu_item_cost"
-    t.bigint "quantity"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.datetime "delivered_at"
-    t.boolean "confirmed"
-    t.bigint "quantity"
-    t.string "item_name"
-    t.bigint "item_cost"
-    t.datetime "order_time"
-    t.bigint "user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "role"
-    t.boolean "is_owner"
-    t.boolean "is_clerk"
-    t.string "password_digest"
-  end
 
 end
