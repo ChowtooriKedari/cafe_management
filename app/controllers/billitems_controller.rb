@@ -17,12 +17,14 @@ class BillitemsController < ApplicationController
 
       item.save
     end
-    if Billitem.count != Orderitem.count
-      flash[:error] = "Unable to Process your order.Please Try Again "
-      redirect_to orderitems_path
-    else
+    if Billitem.count >= Orderitem.count
       flash[:error] = "Processing  your order.Check Status for details"
       redirect_to billitems_path
     end
+    Orderitem.delete_all
+  end
+
+  def new
+    redirect_to orderitems_path
   end
 end

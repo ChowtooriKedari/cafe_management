@@ -13,12 +13,10 @@
          <label class="OrderItem-container">
          <div class="OrderMenu">
                       <%n=n+1%>
-                      <p class="Ordereditemname">  <%=n%> Name : <%=person.first_name%>  <%=person.last_name%></p>
-                      <div>
-                    <p class="Ordereditemcost"> Role : <%=person.role%></p>
-                    <div>
-          </div>
-          <div class="Checklist">
+                    <table class="tableformats"><tr><td>  <p class="Ordereditemname">  <%=n%> Name : <%=person.first_name%>  <%=person.last_name%></p>
+                      </td><div>
+                    <td><p class="Ordereditemcost"> Role : <%=person.role%></p></td>
+         <td> <div class="Checklist">
 <div class="checker">
          <%= form_with(url: "/viewusersbyowner/#{person.id}",method: "PATCH") do %>
           <input class="TodoItem-checkbox"
@@ -30,8 +28,8 @@
                       <%="Clerk"%>
                      <%end%>
 
-            </div>
-
+            </div></td>
+<td>
 
 <div class="checkers",display:flex>
          <%= form_with(url: "/users/#{person.id}",method: "PATCH") do %>
@@ -45,14 +43,15 @@
 
 
 </div>
-
+</td>
 
 </div>
-
+<td>
 
                     <%= form_with(url: "/viewusersbyowner/#{person.id}",method: "delete") do %>
                      <input type='image' class="Additem-delete" src="t.png" alt="Delete" height="20" width="20" >
                    <%end%>
+    </td></tr></table>
           <%end%>
 
 

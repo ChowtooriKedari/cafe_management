@@ -4,27 +4,21 @@ class OrderitemsController < ApplicationController
   end
 
   def create
-    @count = 0
-    @count1 = 0
     items = Menuitem.all
     items.each do |item|
       if item.selected
         item_name = item.item_name
         item_cost = item.item_cost
         quantity = params[:quantity]
-        @count = @count + 1
-        menu_item = Orderitem.new(ordered_user_id: 1,
-                                  menu_item_name: item_name,
-                                  menu_item_cost: item_cost,
-                                  quantity: 1)
+        menu_item = Orderitem.create(ordered_user_id: 1,
+                                     menu_item_name: item_name,
+                                     menu_item_cost: item_cost,
+                                     quantity: 1)
 
         item.selected = false
-        if menu_item.save
-          flash[:error] = "Item Successfully Added"
-          redirect_to menuitems_path
-        end
       end
     end
+    redirect_to orderitems_path
   end
 
   def edit
@@ -33,6 +27,7 @@ class OrderitemsController < ApplicationController
   end
 
   def new
+    render "index"
   end
 
   def update

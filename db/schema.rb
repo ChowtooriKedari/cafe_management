@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_192404) do
+ActiveRecord::Schema.define(version: 2020_05_04_063211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 2020_05_02_192404) do
     t.string "item_description"
     t.bigint "item_cost"
     t.bigint "user_id"
+    t.bigint "menu_id"
+    t.boolean "is_breakfast"
+    t.boolean "is_lunch"
+    t.boolean "is_dinner"
   end
 
   create_table "billitems", force: :cascade do |t|

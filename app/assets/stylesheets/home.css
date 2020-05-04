@@ -21,14 +21,13 @@
   justify-content: space-between;
 }
 .Arrangecontent {
-  margin-top: 200px;
-  margin-bottom: 200px;
   justify-content: center;
   width: 450px;
   padding: 10px;
   border: 5px solid gray;
-  margin-left: 500px;
+  margin-left: 100px;
   background-color: lightblue;
+  height: 400px;
 }
 .Arrangecontent2 {
   justify-content: center;

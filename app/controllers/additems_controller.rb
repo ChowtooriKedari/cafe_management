@@ -12,10 +12,30 @@ class AdditemsController < ApplicationController
     item_name = params[:item_name]
     item_description = params[:item_description]
     item_cost = params[:item_cost]
+    menutype = params[:menutype]
+    is_breakfast = false
+    is_lunch = false
+    is_dinner = false
+    if menutype == "Breakfast"
+      menuid = 1
+      is_breakfast = true
+    end
+    if menutype == "Lunch"
+      menuid = 2
+      is_lunch = true
+    end
+    if menutype == "Dinner"
+      menuid = 3
+      is_dinner = true
+    end
     new_item = Additems.new(item_name: item_name,
                             item_description: item_description,
                             item_cost: item_cost,
-                            user_id: 1)
+                            user_id: 1,
+                            menu_id: menuid,
+                            is_breakfast: is_breakfast,
+                            is_lunch: is_lunch,
+                            is_dinner: is_dinner)
 
     if new_item.save
       flash[:notice] = " Item Entry Successful "

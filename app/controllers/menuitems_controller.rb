@@ -4,22 +4,32 @@ class MenuitemsController < ApplicationController
   end
 
   def create
-    @count = 0
     @count1 = 0
-    items = Additems.all
+    menutypes = params[:menu]
+    if menutypes == "Breakfast"
+      items = Additems.check_breakfast
+    end
+    if menutypes == "Lunch"
+      items = Additems.check_lunch
+    end
+    if menutypes == "Dinner"
+      items = Additems.check_dinner
+    end
     items.each do |item|
       item_name = item.item_name
       item_description = item.item_description
       item_cost = item.item_cost
-      menu_item = Menuitem.new(item_name: item_name,
-                               item_description: item_description,
-                               item_cost: item_cost,
-                               user_id: 1,
-                               selected: false)
+      if items.count != Menuitem.count
+        menu_item = Menuitem.new(item_name: item_name,
+                                 item_description: item_description,
+                                 item_cost: item_cost,
+                                 user_id: 1,
+                                 selected: false)
 
-      item.save
-      if menu_item.save
-        @count = @count + 1
+        item.save
+        if menu_item.save
+          @count1 = @count1 + 1
+        end
       end
     end
     redirect_to menuitems_path
@@ -34,8 +44,13 @@ class MenuitemsController < ApplicationController
     else
       item.selected = false
     end
-    item.save!
-    redirect_to menuitems_path
+    if item.save! && item.selected
+      flash[:error] = "Item Successfully Selected to Order"
+      redirect_to menuitems_path
+    elsif !item.selected
+      flash[:error] = "You Deselected an Item"
+      redirect_to menuitems_path
+    end
   end
 
   def destroy

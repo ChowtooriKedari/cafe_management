@@ -15,6 +15,11 @@
                     <%=label_tag 'Enter Item Cost  ', nil, class: 'Additemlabel'%>
                     <%= text_field_tag(:item_cost,nil, class:'Additem-cost', placeholder: "Add Item cost in rupees" )%>
                 </div>
+                 <div class="Additem">
+                    <%=label_tag 'Select Menu Type  ', nil, class: 'Additemlabel'%>
+                 <%= select_tag "menutype", raw("<option>Breakfast</option><option>Lunch</option><option>Dinner</option>"), disabled:false , class:'Additem-cost'%>
+                </div>
+
                 <%= button_tag('Proceed to Add Items',type:"Submit",class:"Additem-Button")%>
            <%end%>
 <%= link_to "<-Go Back",ownerhome_index_path,class:"AddItem-Goback" %>

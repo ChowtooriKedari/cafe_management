@@ -81,6 +81,16 @@
   border: 5px solid gray;
   background-image: image-set("idli.jpg");
 }
+.Container {
+  display: flex;
+  font-display: center;
+  align-items: stretch;
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-color: lightyellow;
+}
 .Menuitemslist {
   margin-bottom: 200px;
   justify-content: center;

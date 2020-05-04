@@ -119,13 +119,19 @@
 </div>
 
 
-
-
-
-
+<br/>
+<br/>
  <%= form_with(url: "/menuitems",method: "POST") do %>
-                     <input type='image' class="Usermain-add" src="forward.png" alt="Delete" height="30" width="30">
+                               <div class="Additem">
+                    <%=label_tag 'Select Menu Type  ', nil, class: 'Additemlabel'%>
+                 <%= select_tag "menu", raw("<option>Breakfast</option><option>Lunch</option><option>Dinner</option>"), disabled:false , class:'Additem-cost'%>
+                </div>
+                <%Menuitem.delete_all%>
+                     <input type='button'  value="Start Adding Items" class="buttonglower"
+                     alt="Add items"
+                     onClick="this.form.submit()">
                    <%end%>
+
                    <h4 class="Fooditem">Press >> to Order Items</h4>
     <h3 class="Fooditem">Have a delicious food</h3>
 

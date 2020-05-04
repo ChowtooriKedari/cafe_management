@@ -1,44 +1,49 @@
 
- <section class="TodoSection">
+ <section >
 
-  <div class="Menuitemslist">
+
     <div class="TodoSectionTitle" display: flex>
     <p class="TodoSectionTitle-text"><%=section_title%></p>
     <p class="TodoSectionTitle-remainingCount">
     <%=items.count%>
     </p>
   </div>
+  </div>
   <ul>
 
     <% items.each do |item|%>
-       <li class="MenuItem">
-         <label class="MenuItem-container">
-         <div class="Menu">
-         <%= form_with(url: "/menuitems/#{item.id}",method: "PUT") do %>
-          <input class="TodoItem-checkbox"
-                     type="checkbox"
-                     name="completed"
-                     <%=item.selected ? "checked":""%>
-                     onclick="this.form.submit()"
-                     />
-                     <%end%>
-                    <%=item.item_name%>
+    <div class="Container">
+         <table class="tableforms">
+         <tr>
+          <td><%= form_with(url: "/menuitems/#{item.id}",method: "PUT") do %>
+                  <input class="TodoItem-checkbox"
+                         type="checkbox"
+                         name="completed"
+                          <%=item.selected ? "checked":""%>
+                          onclick="this.form.submit()"
+                          /> <%=item.item_name%>
+                          <%end%>
+                    </td>
+                    <td><p class="ItemCost">Rs.<%=item.item_cost%>/-</p>
+                    </td>
+                    <td>  <%=item.item_description%>
+               </td>
+        </tr>
 
-                  </div>
-                  <p class="ItemCost">Rs.<%=item.item_cost%>/-</p>
-
-                 <div class="Item-description">
-                  <p><%=item.item_description%></p>
-                 </div>
-                 <%if item.selected  %>
-                    <%= form_with(url: "/orderitems",method: "POST") do %>
-                     <input type='image' class="Additem-forward" src="forward.png" alt="Additems" margin-right="100px" height="20" width="20">
-                   <%end%>
+</table>
+</div>
          <%end%>
-         <%end%><br/><br/>
-          <%=link_to "Proceed to Order -> " , orderitems_path%>
-       </label>
-       </li>
+
+         <br>
+         <br>
+<%= button_to "Proceed To Order ->", orderitems_path,method:"POST", class:"Processorder"%>
+
+ <%= form_with(url: "/usermain",method: "GET") do %>
+                     <input type='button'  value="Back" class="Processorder"
+                     alt="Add items" onClick="this.form.submit()"   >
+                     <%end%>
+
+
+
     </ul>
-  </div>
     </section>

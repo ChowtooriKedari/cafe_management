@@ -27,7 +27,9 @@ class OrdersController < ApplicationController
                                   order_time: item.ordertime,
                                   user_id: current_user.id)
     end
-    redirect_to orders_path
+    Billitem.delete_all
+    Orderitem.delete_all
+    redirect_to billitems_path
   end
 
   def update

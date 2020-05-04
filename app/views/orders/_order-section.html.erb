@@ -17,25 +17,29 @@
  <% if show_billamount%>
           <%@bill_amount= @bill_amount + item.item_cost * item.quantity%>
       <%end%>
+
                       <%n=n+1%>
-
+<table class="tableformats"><tr><td>
                       <p class="Ordereditemname">  <%=n%>. Name: <%=item.item_name%>
-                    </p>
-                    <p class="Ordereditemcost">Cost (<%=item.quantity%>*<%=item.item_cost%> ):Rs <%=item.item_cost * item.quantity%>/-</p>
-
-
+                    </p></td>
+                    <td><p class="Ordereditemcost">Cost (<%=item.quantity%>*<%=item.item_cost%> ):Rs <%=item.item_cost * item.quantity%>/-</p>
+</td>
           </div>
-          <div>
-          <p>Ordered On : <%=item.order_time.strftime("%d/%m/%Y")%>  <%=item.order_time.strftime("at %I:%M%p")%></p>
-</div>
-<div>
+
+      <td>    <p>Ordered On : <%=item.order_time.strftime("%d/%m/%Y")%>  <%=item.order_time.strftime("at %I:%M%p")%></p></td>
+
+<td>
           <%if !item.confirmed%>
           <p class="Pending">Status: Pending </p>
           <%else%>
            <p class="Confirmed">Status: Confirmed </p></p>
+
            <%end%>
+    </td>
+    <tr>
+    </table>
         <%end%>
-</div>
+
 
 <%end%>
 

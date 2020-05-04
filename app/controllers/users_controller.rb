@@ -16,10 +16,10 @@ class UsersController < ApplicationController
     last_name = params[:last_name]
     email = params[:email]
     password = params[:password]
+
     created_user = User.new(first_name: first_name,
                             last_name: last_name,
                             email: email,
-                            password_digest: password,
                             role: "Customer",
                             is_owner: false,
                             is_clerk: false,
@@ -58,5 +58,9 @@ class UsersController < ApplicationController
     else
       render plain: "false"
     end
+  end
+
+  def edit
+    id = params[:id]
   end
 end

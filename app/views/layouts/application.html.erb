@@ -13,15 +13,13 @@
   <header class="Header">
   <p class="Header-Text">Cafeteria</p>
   </header>
-  <% content_for :header do %>
-  <li><%= link_to 'Home' %></li>
-<% end %>
        <% if flash[:error] %>
         <p class="Flash" ><%= flash[:error] %></p>
      <% end %>
     <%= yield %>
-  </body>
-  <footer class="Footer">
+     <footer class="Footer">
   <p class="Footer-Text">SaaS Project @201</p>
 </footer>
+  </body>
+
 </html>
