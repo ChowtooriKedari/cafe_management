@@ -17,11 +17,17 @@
        <li>
 
 
+       <%@userorderitems = $user.orders%>
+     <p> User Name:<%=$user.first_name%> <%=$user.last_name%></p>
 
-       <%=@userorderitems.count%>
-     <p> <%=@user.first_name%> <%=@user.last_name%></p>
+     <%date=Date.parse $from_date%>
+     <%todate=Date.parse $to_date%>
+     <p>Items Ordered between  <%=date.strftime("%d/%m/%Y")%>    and   <%=todate.strftime("%d/%m/%Y")%>  are  :</p>
      <% @userorderitems.each do |item|%>
-<% if item.order_time.strftime("%m/%d/%Y")  >=   @from_date.strftime("%m/%d/%Y")%>
+
+<% if item.order_time.strftime("%m/%d/%Y")  >=   date.strftime("%m/%d/%Y")%>
+<% if item.order_time.strftime("%m/%d/%Y")  <=   todate.strftime("%m/%d/%Y")%>
+
      <%n=n+1%>
    <p><%=n%>. Item Name : <%=item.item_name%></p>
 <button type="button" class="collapsible">View Order Details</button>
@@ -43,7 +49,7 @@
  <%@bill_amount= @bill_amount + item.item_cost * item.quantity%>
  <%end%>
      <%end%>
-
+<%end%>
        </li>
 
     </ul>
@@ -78,3 +84,4 @@ for (i = 0; i < coll.length; i++) {
 
 </body>
 </html>
+>

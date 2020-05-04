@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,27 +18,23 @@
 
 
        <%@userorderitems = @user.orders%>
-            <p>User Id :  <%=@user.id%></p>
-     <p>User Name: <%=@user.first_name%> <%=@user.last_name%></p>
-     <p>Total Ordered items:<%=@userorderitems.count%></p>
- <%= form_with(url: "/reports/#{@user.id}", method: "PATCH", class:"AddTodo") do %>
-           <%= date_field_tag(:from_date, "Todo's Date", class:"AddTodo-Date") %>
-             <%= date_field_tag(:to_date, "Todo's Date", class:"AddTodo-Date") %>
-
-             <%= button_tag('Add',type:"Submit",class:"AddTodo-Button")%>
-           <%end%>
+       <%=@userorderitems.count%>
+     <p> <%=@user.first_name%> <%=@user.last_name%></p>
+     <%date=Date.parse @from_date%>
+     <%=date.strftime("%m/%d/%Y")%>
      <% @userorderitems.each do |item|%>
+
+<% if item.order_time.strftime("%m/%d/%Y")  ==   date.strftime("%m/%d/%Y")%>
+
      <%n=n+1%>
    <p><%=n%>. Item Name : <%=item.item_name%></p>
 <button type="button" class="collapsible">View Order Details</button>
 <div class="content">
-
  <p>Item Name              : <%=item.item_name%></p>
  <p>Item Cost( 1 Item)     : <%=item.item_cost%></p>
  <p>Quantity Ordered       : <%=item.quantity%></p>
  <p>Ordered On             : <%=item.order_time%></p>
  <p>Delivered at           : <%=item.delivered_at%></p>
-  <p>User Id               : <%=item.user_id%></p>
  <p>Total Order Cost       : <%= item.item_cost * item.quantity%>
  <p>Status                 :
      <%if item.confirmed%>
@@ -49,6 +45,7 @@
 </div>
 
  <%@bill_amount= @bill_amount + item.item_cost * item.quantity%>
+ <%end%>
      <%end%>
 
        </li>
@@ -85,3 +82,4 @@ for (i = 0; i < coll.length; i++) {
 
 </body>
 </html>
+>

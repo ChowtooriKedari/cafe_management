@@ -3,7 +3,7 @@ class HomeController < ApplicationController
 
   def index
     if current_user
-      redirect_to usermain_index_path
+      redirect_to "/"
     else
       render "index"
     end

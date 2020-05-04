@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/" => "delete#destroy"
   patch "additems/:id", to: "additems#update"
   resources :additems, only: [:index, :show, :new, :create, :edit, :update]
-  resources :reports, only: [:index, :show, :new, :create, :edit, :update]
+  resources :reports
   resources :menus
   resources :menuitems
   resources :orderitems
@@ -13,12 +13,13 @@ Rails.application.routes.draw do
   resources :billitems
   resources :usermain
   resources :orders
-  resources :delete
+  resources :viewer
   resources :ownerhome
   resources :orderreceived
   resources :orderreceivedbyclerk
   resources :users
   resources :viewusersbyowner
+
   get "/new" => "users#new", as: :user_sessions
   get "/signin" => "sessions#new", as: :new_sessions
   post "/signin" => "sessions#create", as: :sessions
