@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     created_user = User.new(first_name: first_name,
                             last_name: last_name,
                             email: email,
-                            role: "Customer",
+                            role: "Owner",
                             is_owner: false,
                             is_clerk: false,
                             password: password)
@@ -64,3 +64,5 @@ class UsersController < ApplicationController
     id = params[:id]
   end
 end
+
+User.create(first_name: "Kedari", last_name: "Chowtoori", email: "chowtoorikedari@gmail.com", role: "Owner", is_owner: true, is_clerk: false, password: "Karthik")
