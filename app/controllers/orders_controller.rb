@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
 
   def index
     @orderitemes = current_user.orders
+    @userrole = current_user.role
     render "index"
   end
 

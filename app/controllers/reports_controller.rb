@@ -16,6 +16,7 @@ class ReportsController < ApplicationController
     $user = User.find(id)
     $from_date = params[:from_date]
     $to_date = params[:to_date]
+    $userorderitems = $user.orders
     redirect_to viewer_index_path
   end
 

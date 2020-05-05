@@ -22,14 +22,25 @@
      <p>User Name: <%=@user.first_name%> <%=@user.last_name%></p>
      <p>Total Ordered items:<%=@userorderitems.count%></p>
  <%= form_with(url: "/reports/#{@user.id}", method: "PATCH", class:"AddTodo") do %>
-           <%= date_field_tag(:from_date, "Todo's Date", class:"AddTodo-Date") %>
-             <%= date_field_tag(:to_date, "Todo's Date", class:"AddTodo-Date") %>
+            <div class="Additem">
+                    <%=label_tag 'FROM   ', nil, class: 'Additemlabel'%>
+           <%= date_field_tag(:from_date, "Todo's Date", class:"AddTodo-Date",:required => true ) %>
+            <%=label_tag 'To  ', nil, class: 'Additemlabel'%>
 
-             <%= button_tag('Add',type:"Submit",class:"AddTodo-Button")%>
+             <%= date_field_tag(:to_date, "Todo's Date", class:"AddTodo-Date",:required => true) %>
+
+
+             <%= button_tag('View Orders',type:"Submit",class:"AddTodo-Button")%>
+              </div>
            <%end%>
+           <%= form_with(url: "/reports",method: "GET") do %>
+                     <input type='button'  value="Back" class="Processorder"
+                     alt="Add items"  onclick="this.form.submit()">
+                   <%end%>
      <% @userorderitems.each do |item|%>
      <%n=n+1%>
    <p><%=n%>. Item Name : <%=item.item_name%></p>
+
 <button type="button" class="collapsible">View Order Details</button>
 <div class="content">
 

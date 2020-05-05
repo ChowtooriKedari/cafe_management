@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     created_user = User.new(first_name: first_name,
                             last_name: last_name,
                             email: email,
-                            role: "Customer",
+                            role: "Clerk",
                             is_owner: false,
                             is_clerk: false,
                             password: password)

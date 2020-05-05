@@ -6,6 +6,14 @@
     <p><%=link_to  "View Users",viewusersbyowner_index_path,class:"Linker" %></p>
      <p><%=link_to  "View Stats",reports_path,class:"Linker" %></p>
     </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+      <%= form_with(url: "/usermain",method: "GET") do %>
+                     <input type='button'  value="Make an Offline Order" class="Processorder"
+                     alt="Add items" onClick="this.form.submit()"   >
+                     <%end%>
 <div class="Breakfast">
 <p>All happiness depends on a leisurely breakfast </p>
 <p>Breakfast is everything</p>

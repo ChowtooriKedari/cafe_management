@@ -16,8 +16,8 @@
        <li class="OrderItem">
          <label class="OrderItem-container">
          <div class="OrderMenu">
-        <%orderedby = User.find(item.user_id)%>
-        <% if orderedby.role=="Customer"%>
+          <%orderedby = User.find(item.user_id)%>
+        <% if orderedby.role=="Owner"%>
          <%if !item.confirmed%>
           <%@bill_amount= @bill_amount + item.item_cost * item.quantity%>
                       <%n=n+1%>

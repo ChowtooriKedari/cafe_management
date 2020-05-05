@@ -12,4 +12,8 @@ class UsermainController < ApplicationController
     @to_date = params[:to_date]
     render :template => "reports/reportstats"
   end
+
+  def new
+    redirect_to usermain_path
+  end
 end

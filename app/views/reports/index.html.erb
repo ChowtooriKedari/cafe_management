@@ -1,7 +1,12 @@
 <main class="TodoPageMain">
     <article>
-         <%= link_to "Sign-Out",destroy_session_path,method: "delete"%>
-
+         <%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Signoutdelete"%>
+         <br/>
+<br/>
+<%= form_with(url: "/menus",method: "GET") do %>
+                     <input type='button'  value="View Sessional Orders" class="Processorder"
+                     alt="Add items" onClick="this.form.submit()"   >
+                     <%end%>
 
        <h1 class="Additems-title">REPORT</h1>
        <%= render partial:"stats-section",locals: {

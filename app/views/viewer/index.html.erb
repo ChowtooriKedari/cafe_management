@@ -15,19 +15,16 @@
 
   <%n=0%>
        <li>
-
-
-       <%@userorderitems = $user.orders%>
-     <p> User Name:<%=$user.first_name%> <%=$user.last_name%></p>
-
+       <%= form_with(url: "/reports",method: "GET") do %>
+                     <input type='button'  value="Go Back" class="Processorder"
+                     alt="Add items"  onclick="this.form.submit()">
+                   <%end%>
      <%date=Date.parse $from_date%>
      <%todate=Date.parse $to_date%>
      <p>Items Ordered between  <%=date.strftime("%d/%m/%Y")%>    and   <%=todate.strftime("%d/%m/%Y")%>  are  :</p>
-     <% @userorderitems.each do |item|%>
-
+     <% $userorderitems.each do |item|%>
 <% if item.order_time.strftime("%m/%d/%Y")  >=   date.strftime("%m/%d/%Y")%>
 <% if item.order_time.strftime("%m/%d/%Y")  <=   todate.strftime("%m/%d/%Y")%>
-
      <%n=n+1%>
    <p><%=n%>. Item Name : <%=item.item_name%></p>
 <button type="button" class="collapsible">View Order Details</button>
@@ -45,26 +42,16 @@
       <p> <%="Pending"%></p>
       <%end%>
 </div>
-
  <%@bill_amount= @bill_amount + item.item_cost * item.quantity%>
  <%end%>
      <%end%>
 <%end%>
        </li>
-
     </ul>
     </section>
-
-
-
-
  <div class="Billdetails">
      <div class="Billamount"><p class="Outer">Total bill amount :<p class="Bill"> Rs.<%= @bill_amount%>/-</p> </p></div>
 </div>
-
-
-
-
 <script>
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -84,4 +71,3 @@ for (i = 0; i < coll.length; i++) {
 
 </body>
 </html>
->

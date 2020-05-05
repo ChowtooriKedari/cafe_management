@@ -75,5 +75,4 @@ ActiveRecord::Schema.define(version: 2020_05_04_063211) do
     t.boolean "is_clerk"
     t.string "password_digest"
   end
-
 end

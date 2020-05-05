@@ -59,6 +59,9 @@
                          <%= form_with(url: "/menuitems",method: "GET") do %>
                      <input type='button'  value="Order More Items " alt="RedirectBack" class ="Buttonredirect"onclick="this.form.submit()">
                    <%end%>
+                       <%= form_with(url: "/orders",method: "GET") do %>
+                     <input type='button'  value="View your Order Status if any ?" alt="RedirectBack" class ="Buttonredirect"onclick="this.form.submit()">
+                   <%end%>
       <%else%>
 
          <%= form_with(url: "/billitems",method: "POST") do %>

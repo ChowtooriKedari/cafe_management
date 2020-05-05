@@ -1,6 +1,6 @@
 <main class="TodoPageMain">
     <article>
-         <%= link_to "Sign-Out",destroy_session_path,method: "delete"%>
+         <%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Signoutdelete"%>
 
 
        <h1 class="Additems-title">Your Ordered Items List</h1>
@@ -14,6 +14,19 @@
                     items: @orderitemes.all,
                     show_billamount:true
                     }%>
+
+          <% if @userrole=="Owner" %>
+          <%= form_with(url: "/ownerhome",method: "GET") do %>
+                     <input type='button'  value="Back To Owner Page" class="Processorder"
+                     alt="Add items" onClick="this.form.submit()"   >
+                     <%end%>
+          <%end%>
+           <% if @userrole=="Clerk" %>
+          <%= form_with(url: "/orderreceivedbyclerk",method: "GET") do %>
+                     <input type='button'  value="Back To Clerk Page" class="Processorder"
+                     alt="Add items" onClick="this.form.submit()"   >
+                     <%end%>
+          <%end%>
 
     <h3 class="Fooditem">Have a delicious food</h3>
     </article>

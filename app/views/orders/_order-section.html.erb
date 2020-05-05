@@ -7,6 +7,8 @@
   <ul>
   <%@bill_amount=0%>
   <%n=0%>
+  <%@clerkcheck=false%>
+  <%@usercheck=false%>
     <% items.each do |item|%>
        <li class="OrderItem">
          <label class="OrderItem-container">
@@ -29,6 +31,13 @@
       <td>    <p>Ordered On : <%=item.order_time.strftime("%d/%m/%Y")%>  <%=item.order_time.strftime("at %I:%M%p")%></p></td>
 
 <td>
+<%orderedby = User.find(item.user_id)%>
+        <% if orderedby.role=="Owner"%>
+        <%@usercheck=true%>
+        <%end%>
+        <% if orderedby.role=="Clerk"%>
+        <%@clerkcheck=true%>
+        <%end%>
           <%if !item.confirmed%>
           <p class="Pending">Status: Pending </p>
           <%else%>
