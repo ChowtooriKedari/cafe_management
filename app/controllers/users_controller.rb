@@ -64,5 +64,3 @@ class UsersController < ApplicationController
     id = params[:id]
   end
 end
-
-User.create(first_name: "Kedari", last_name: "Chowtoori", email: "chowtoorikedari@gmail.com", role: "Owner", is_owner: true, is_clerk: false, password: "Karthik")
