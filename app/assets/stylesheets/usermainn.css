@@ -60,8 +60,7 @@ body {
 }
 .Usermaincss {
   justify-content: center;
-  margin-left: 1000px;
-  background: rgba(0, 0, 0, 0.4);
+  margin-left: 600px;
 }
 
 .buttonglower {
@@ -100,9 +99,9 @@ body {
   justify-items: center;
 }
 .Justifycontent {
-  margin-top: 40px;
+  margin-top: 20px;
   justify-content: center;
-  margin-left: 300px;
+  background: rgba(0, 0, 0, 0.4);
 }
 .Fooditem {
   color: white;
