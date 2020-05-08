@@ -1,27 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  background-image:url("/bg.jpg");
+background-size:100% 130%;
+background-repeat:no-repeat;
+}
+</style>
+</head>
+<body>
+
+
 <div class="Arrangecontent2">
 <p class="Newusers-title">WELCOME USER</p>
 <section class="newuser">
 <%= form_with url: users_path do |form| %>
     <div class="Form-section">
-        <p class="FormInput-label">First name :</p>
+        <p class="FormInput-label">First name </p>
           <%= form.text_field :first_name,
                       class: "form-data"
           %>
     </div>
     <div class="Form-section">
-        <p class="FormInput-label">Last name :</p>
+        <p class="FormInput-label">Last name </p>
           <%= form.text_field :last_name,
                        class: "form-data"
           %>
     </div>
     <div class="Form-section">
-      <p class="FormInput-label">Email ID :</p>
+      <p class="FormInput-label">Email ID </p>
           <%= form.email_field :email,
                   class: "form-data"
           %>
     </div>
      <div class="Form-section">
-      <p class="FormInput-label">Password :</p>
+      <p class="FormInput-label">Password </p>
           <%= form.password_field :password,
                           class: "form-data"
           %>
@@ -34,3 +48,6 @@
 <% end %>
 </section>
 </div>
+
+</body>
+</html>

@@ -34,8 +34,9 @@
   width: 450px;
   padding: 10px;
   border: 5px solid gray;
-  margin-left: 500px;
-  background-color: lightgoldenrodyellow;
+  margin-left: 1300px;
+  margin-top: 200px;
+  background: rgba(0, 0, 0, 0.8);
 }
 .Arrangecontent3 {
   justify-content: center;

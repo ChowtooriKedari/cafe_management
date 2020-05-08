@@ -1,3 +1,17 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  background-image:url("/bg1.jpg");
+background-size:100% 180%;
+background-repeat:no-repeat;
+}
+</style>
+</head>
+<body>
 <main class="TodoPageMain">
     <article>
 <div class="OwnerLinkers">
@@ -11,15 +25,21 @@
     <br/>
     <br/>
       <%= form_with(url: "/usermain",method: "GET") do %>
-                     <input type='button'  value="Make an Offline Order" class="Processorder"
+                     <input type='button'  value="Make an Offline Order" class="Processorders"
                      alt="Add items" onClick="this.form.submit()"   >
                      <%end%>
 <div class="Breakfast">
-<p>All happiness depends on a leisurely breakfast </p>
-<p>Breakfast is everything</p>
+<p>“One cannot think well, love well, sleep well, if one has not dined well.”</p>
+
  <p><%=link_to  "Add Items to Inventory",additems_path,class:"Linker" %></p>
 </div>
 
-    <h3 class="Fooditem">Have a delicious food</h3>
+
     </article>
 </main>
+
+
+
+
+</body>
+</html>

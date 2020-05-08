@@ -1,7 +1,24 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  background-image:url(".jpg");
+background-size:100% 180%;
+background-repeat:no-repeat;
+}
+</style>
+</head>
+<body>
 <main class="TodoPageMain">
     <article>
-      <%= link_to "Sign-Out",destroy_session_path,method: "delete"%>
+      <%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Signout"%>
        <h1 class="Additems-title">Enter Menu Items </h1>
+       <div class="Addmain">
           <%= form_with(url: "additems#create", method: "post") do %>
                 <div class="Additem">
                     <%=label_tag 'Enter Item Name  ', nil, class: 'Additemlabel'%>
@@ -21,9 +38,10 @@
                 </div>
 
                 <%= button_tag('Proceed to Add Items',type:"Submit",class:"Additem-Button")%>
+
            <%end%>
 <%= link_to "<-Go Back",ownerhome_index_path,class:"AddItem-Goback" %>
-
+</div>
           <h3 class="Fooditem">Have a delicious food</h3>
          <%= render partial:"additem-section",locals: {
                     section_title: "Items in the list",
@@ -32,3 +50,9 @@
 
     </article>
 </main>
+
+
+
+
+</body>
+</html>

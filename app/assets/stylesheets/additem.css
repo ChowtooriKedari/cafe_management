@@ -140,3 +140,15 @@
   table-layout: fixed;
   width: 100%;
 }
+#example1 {
+  background-image: url(idli.jpg);
+  background-position: right bottom, left top;
+  background-repeat: no-repeat, repeat;
+  padding: 15px;
+}
+.Addmain {
+  margin-left: 600px;
+}
+.Signout {
+  margin-left: 1300px;
+}

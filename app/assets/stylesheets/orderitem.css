@@ -172,3 +172,16 @@ td {
   background-color: lightyellow;
   font-size: 20px;
 }
+.ImageCE {
+  margin-left: 500px;
+}
+.Processorders {
+  padding: 8px 24px;
+  font-size: 14px;
+  color: white;
+  background-color: green;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-left: 500px;
+  text-align: center;
+}

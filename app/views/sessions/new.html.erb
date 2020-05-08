@@ -1,17 +1,30 @@
-<div class="Arrangecontent3">
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  background-image:url("/bg1.jpg");
+background-size:100% 150%;
+background-repeat:no-repeat;
+}
+</style>
+</head>
+<body>
+
+<div class="Arrangecontent2">
   <p class="Newusers-title">SIGN IN</p>
     <section class="newuser">
     <%= form_with url: sessions_path do |form| %>
 
 
     <div class="Form-section">
-        <p class="FormInput-label">Email ID :</p>
+        <p class="FormInput-label">Email ID </p>
           <%= form.email_field :email,
                       class: "form-data"
           %>
     </div>
      <div class="Form-section">
-        <p class="FormInput-label">Password :</p>
+        <p class="FormInput-label">Password </p>
           <%= form.password_field :password,
                           class: "form-data"
           %>
@@ -22,3 +35,8 @@
     <% end %>
 </section>
 </div>
+<p class="Info">STAY HOME STAY SAFE</p>
+
+
+</body>
+</html>

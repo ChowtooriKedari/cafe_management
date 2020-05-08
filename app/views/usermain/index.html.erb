@@ -3,8 +3,15 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
+<style>
+body{
+  background-image:url("/um1.png");
+background-size:100% 150%;
+background-repeat:no-repeat;
+}
+</style>
 <body>
+<div class="Justifycontent">
 <div class="Usermaincss">
 
 <div class="Breakfastitemborder">
@@ -121,20 +128,30 @@
 
 <br/>
 <br/>
+<div class="Usermain-buttons">
  <%= form_with(url: "/menuitems",method: "POST") do %>
                                <div class="Additem">
                     <%=label_tag 'Select Menu Type  ', nil, class: 'Additemlabel'%>
                  <%= select_tag "menu", raw("<option>Breakfast</option><option>Lunch</option><option>Dinner</option>"), disabled:false , class:'Additem-cost'%>
                 </div>
                 <%Menuitem.delete_all%>
-                     <input type='button'  value="Start Adding Items" class="buttonglower"
+                     <input type='button'  value="Order Items" class="buttonglower"
+                     alt="Add items"
+                     onClick="this.form.submit()">
+                   <%end%>
+                   </div>
+                   <br/>
+ <%= form_with(url: "/orders",method: "GET") do %>
+                <%Menuitem.delete_all%>
+                     <input type='button'  value="View Your Order Status" class="Processorder"
                      alt="Add items"
                      onClick="this.form.submit()">
                    <%end%>
 
-                   <h4 class="Fooditem">Press >> to Order Items</h4>
+
     <h3 class="Fooditem">Have a delicious food</h3>
 
+</div>
 </div>
 </div>
 </body>
