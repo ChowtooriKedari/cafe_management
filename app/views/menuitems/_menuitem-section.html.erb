@@ -10,42 +10,43 @@
   </div>
   </div>
   <ul>
-
     <% items.each do |item|%>
-    <div class="Container">
-         <table class="tableforms">
-         <tr>
-          <td><%= form_with(url: "/menuitems/#{item.id}",method: "PUT") do %>
+      <div class="Container">
+           <table class="tableforms">
+             <tr>
+                <td>
+                  <%= form_with(url: "/menuitems/#{item.id}",method: "PUT") do %>
                   <input class="TodoItem-checkbox"
                          type="checkbox"
                          name="completed"
                           <%=item.selected ? "checked":""%>
                           onclick="this.form.submit()"
                           /> <%=item.item_name%>
-                          <%end%>
-                    </td>
-                    <td><p class="ItemCost">Rs.<%=item.item_cost%>/-</p>
-                    </td>
-                    <td>  <%=item.item_description%>
+                  <%end%>
+                </td>
+                <td>
+                   <p class="ItemCost">Rs.<%=item.item_cost%>/-
+                   </p>
+                </td>
+                <td>
+                      <%=item.item_description%>
                </td>
-        </tr>
-
-</table>
-</div>
-         <%end%>
-
+              </tr>
+            </table>
+      </div>
+   <%end%>
          <br>
          <br>
 <div class="Menu-Buttons">
-<%= button_to "Proceed To Order ->", orderitems_path,method:"POST", class:"Processorder"%>
-
- <%= form_with(url: "/usermain",method: "GET") do %>
-                     <input type='button'  value="Back" class="Processorder"
-                     alt="Add items" onClick="this.form.submit()"   >
-                     <%end%>
-
+                <%= button_to "Proceed To Order ->", orderitems_path,method:"POST", class:"Processorder"%>
+                <%= form_with(url: "/usermain",method: "GET") do %>
+                          <input type='button'
+                                 value="Back"
+                                 class="Processorder"
+                                 alt="Add items"
+                                 onClick="this.form.submit()"   >
+                 <%end%>
 </div>
-
-    </ul>
-    </section>
+</ul>
+</section>
 </div>

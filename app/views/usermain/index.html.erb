@@ -128,30 +128,30 @@ height:100%;
   </div>
 </div>
 </div>
-
-
 <br/>
 <div class="Usermain-buttons">
  <%= form_with(url: "/menuitems",method: "POST") do %>
-                               <div class="Additem">
+                <div class="Additem">
                     <%=label_tag 'Select Menu Type  ', nil, class: 'Additemlabel'%>
-                 <%= select_tag "menu", raw("<option>Breakfast</option><option>Lunch</option><option>Dinner</option>"), disabled:false , class:'Additem-cost'%>
+                    <%= select_tag "menu", raw("<option>Breakfast</option><option>Lunch</option><option>Dinner</option>"), disabled:false , class:'Additem-cost'%>
                 </div>
-                <%Menuitem.delete_all%>
-                     <input type='button'  value="Order Items" class="buttonglower"
-                     alt="Add items"
-                     onClick="this.form.submit()">
-                   <%end%>
-                   </div>
-                   <br/>
- <%= form_with(url: "/orders",method: "GET") do %>
-                <%Menuitem.delete_all%>
-                     <input type='button'  value="View Your Order Status" class="Processorder"
-                     alt="Add items"
-                     onClick="this.form.submit()">
-                   <%end%>
-
-
+                     <%Menuitem.delete_all%>
+                         <input type='button'
+                                value="Order Items"
+                                class="buttonglower"
+                                  alt="Add items"
+                             onClick="this.form.submit()">
+    <%end%>
+  </div>
+  <br/>
+  <%= form_with(url: "/orders",method: "GET") do %>
+        <%Menuitem.delete_all%>
+        <input type='button'
+              value="View Your Order Status"
+              class="Processorder"
+                alt="Add items"
+            onClick="this.form.submit()">
+    <%end%>
 </div>
 </div>
 </div>

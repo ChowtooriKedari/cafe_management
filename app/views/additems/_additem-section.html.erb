@@ -9,16 +9,29 @@
     <% items.each do |item|%>
        <li class="AddItem">
          <label class="AddItem-container">
-                    <p><%=item.item_name%></p>
-                    <p>Rs.<%=item.item_cost%>/-</p>
-                 <%= form_with(url: "/additems/#{item.id}",method: "delete") do %>
-                     <input type='image' class="Additem-delete" src="t.png" alt="Delete" height="20" width="20" >
-                   <%end%>
-                   <%= link_to "Update", edit_additem_path(item)%>
+                    <table class="tableformat">
+                      <tr>
+                        <td>
+                          <p><%=item.item_name%></p>
+                        </td>
+                        <td>
+                          <p>Rs.<%=item.item_cost%>/-</p>
+                        </td>
+                        <td>
+                            <%= form_with(url: "/additems/#{item.id}",method: "delete") do %>
+                            <input type='image'
+                                    class="Additem-delete"
+                                    src="t.png" alt="Delete"
+                                    height="20" width="20" >
+                             <%end%>
+                         </td>
+                         <td>
+                            <%= link_to "Update", edit_additem_path(item)%>
+                         </td>
+                        </tr>
+                     </table>
             </label>
        </li>
-
-       <%end%>
-
+      <%end%>
     </ul>
     </section>
