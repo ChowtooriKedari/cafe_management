@@ -64,11 +64,3 @@ class UsersController < ApplicationController
     id = params[:id]
   end
 end
-
-User.(first_name: first_name,
-      last_name: last_name,
-      email: email,
-      role: "Customer",
-      is_owner: false,
-      is_clerk: false,
-      password: password)
