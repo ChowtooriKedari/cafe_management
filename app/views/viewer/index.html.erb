@@ -27,7 +27,7 @@
                 <p>Item Cost( 1 Item)     : <%=item.item_cost%></p>
                 <p>Quantity Ordered       : <%=item.quantity%></p>
                 <p>Ordered On             :  <%=item.order_time.in_time_zone('Chennai')%></p>
-                <p>Delivered at           : <%=item.delivered_at.in_time_zone('Chennai')%></p>
+                <p>Delivered at           : <%=item.delivered_at%></p>
                 <p>Total Order Cost       : <%= item.item_cost * item.quantity%>
                 <p>Status                 :
                     <%if item.confirmed%>
