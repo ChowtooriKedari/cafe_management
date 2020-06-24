@@ -1,5 +1,6 @@
 <main class="TodoPageMain">
     <article>
+    <%= link_to "Sign-Out",destroy_session_path,method: "delete",class:"Linker"%>
        <h1 class="Additems-title">List of Items Purchased</h1>
         <%if Orderitem.count!=0%>
             <%= render partial:"ordereditem-section",locals: {
