@@ -5,13 +5,7 @@
                      <input type='button'  value="Back" class="Processorder"
                      alt="Add items" onClick="this.form.submit()"   >
                      <%end%>
-  <%= form_with(url: "/ownerhome",method: "GET") do %>
-                          <input type='button'
-                                 value="Back To Home"
-                                 class="Processorder"
-                                 alt="Add items"
-                                 onClick="this.form.submit()"   >
-                 <%end%>
+
        <h1 class="Additems-title">Users Registered with CAFETERIA</h1>
          <%= render partial:"viewuser-section",locals: {
                     section_title: "List Of Users : ",
