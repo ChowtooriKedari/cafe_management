@@ -30,6 +30,16 @@
                             onClick="this.form.submit()"   >
           <%end%>
       <%end%>
+   <% if @userrole=="Customer" %>
+          <%= form_with(url: "/usermain",method: "GET") do %>
+                     <input type='button'
+                            value="Back To Home"
+                            class="Processorder"
+                            alt="Add items"
+                            onClick="this.form.submit()"   >
+          <%end%>
+      <%end%>
+
     <h3 class="Fooditem">Have a delicious food</h3>
   </article>
 </main>
