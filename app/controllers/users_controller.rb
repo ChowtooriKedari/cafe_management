@@ -26,7 +26,7 @@ class UsersController < ApplicationController
                             password: password)
     if created_user.save
       flash[:error] = "User Successfully Registered"
-      redirect_to usermain_index_path
+      redirect_to "/"
     else
       flash[:error] = created_user.errors.full_messages.join(" , ")
       redirect_to user_sessions_path
