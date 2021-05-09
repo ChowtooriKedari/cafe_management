@@ -5,7 +5,6 @@
 ![Sign Up](https://github.com/ChowtooriKedari/cafe_management/blob/master/Images/SignIn.png)
 #### Select FoodItems
 ![Sign Up](https://github.com/ChowtooriKedari/cafe_management/blob/master/Images/Select.png)
-#### Place Order
 ![Sign Up](https://github.com/ChowtooriKedari/cafe_management/blob/master/Images/OrderItems.png) 
 #### Check Order Status
 ![Sign Up](https://github.com/ChowtooriKedari/cafe_management/blob/master/Images/OrderedItemList.png)
