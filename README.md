@@ -1,4 +1,3 @@
-# cafe_management
 #### Application Link: https://saasproject-saas-201.herokuapp.com/
 #### Sign Up
 ![Sign Up](https://github.com/ChowtooriKedari/cafe_management/blob/master/Images/Signup.png)
